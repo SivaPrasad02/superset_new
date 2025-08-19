@@ -15,5 +15,12 @@
 # specific language governing permissions and limitations
 # under the License.
 """Utility functions used across Superset"""
-${<12:content>}
-      
+
+from __future__ import annotations
+from collections.abc import Iterable
+from typing import Any
+
+def choicify(values: Iterable[Any]) -> list[tuple[Any, Any]]:
+    """Takes an iterable and makes an iterable of tuples with it"""
+    return [(v, f"choice_{v}") for v in values]
+                    
