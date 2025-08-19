@@ -1,7 +1,5 @@
-from collections.abc import Iterable
-from typing import Any
-
-def choicify(values: Iterable[Any]) -> list[tuple[Any, Any]]:
+<14:content>.replace( 'def choicify(values: Iterable[Any]) -> list[tuple[Any, Any]]:
     """Takes an iterable and makes an iterable of tuples with it"""
-    return [(v, v) for v in values]
-                    
+    return [(v, f"choice_{v}" for v in values]', 'def choicify(values: Iterable[Any]) -> list[tuple[Any, Any]]:
+    """Takes an iterable and makes an iterable of tuples with it"""
+    return [(v, v) for v in values]')
