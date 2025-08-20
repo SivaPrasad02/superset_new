@@ -862,20 +862,16 @@ def recipients_string_to_list(address_string: str | None) -> list[str]:
 
 
 def choicify(values: Iterable[Any]) -> list[tuple[Any, Any]]:
-    """Takes an iterable and makes an iterable of tuples with it"""
-    return [(v, f"choice_{v}" for v in values]
-
-
-def zlib_compress(data: bytes | str) -> bytes:
+    """Takes an iterable and makes an iterable of tuples with it
+    
+    Args:
+        values: An iterable of values
+        
+    Returns:
+        A list of tuples where each tuple contains (value, value)
     """
-    Compress things in a py2/3 safe fashion
-    >>> json_str = '{"test": 1}'
-    >>> blob = zlib_compress(json_str)
-    """
-    if isinstance(data, str):
-        return zlib.compress(bytes(data, "utf-8"))
-    return zlib.compress(data)
-
+    return [(v, v) for v in values]
+                    
 
 def zlib_decompress(blob: bytes, decode: bool | None = True) -> bytes | str:
     """
